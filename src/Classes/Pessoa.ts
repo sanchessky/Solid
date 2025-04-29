@@ -1,5 +1,5 @@
-// Criar a classe pai(superclasse) chamado pessoa que passará todos os seus dados às clases filhas.
 /* 
+Criar a classe pai(superclasse) chamado pessoa que passará todos os seus dados às clases filhas.
 A Classe Pessoa segue o principio O(Open/Close) do SOLID,
 onde, temos a classe fechada para modificar e aberta para extensões.
 O qualificador abstract(abstrato) mantém a classe Pessoa, sempre abstrata, não permitindo

@@ -1,39 +1,38 @@
-Projeto a livraria
+Projeto a livraria (open close)
     - Objeto:
         - venda
         - produto
         - cliente
         - funcionario
         - itenvendido
-        - pagamento
+        - pagamento 
+        - endereço
 
-    - Desmembrar Objeto:
-     - Pessoa:
-                + id, nome, cpf, email, telefone, endereco
-            - cliente herda pessoa:
-                +  aniversário
-            - Funcionario herda pessoa:
-                 + cargo, salário
-
-
-     - Autor herd pessoa:
-            + genero_literario
-     - Endereco será associado à classe pessoa:
+       - Desmembrar Objeto:
+       - Pessoa: (classe pai)
+              + id, nome, cpf, email, telefone, endereco
+              classe filha - cliente herda pessoa:
+              +  aniversário
+              classe filha - Funcionario herda pessoa:
+              + cargo, salário
+       - Autor herd pessoa:
+              + genero_literario
+       - Endereco será associado à classe pessoa:
             + tipo_logradouro, logradouro, numero, cep, bairro
-     - Produto:
+       - Produto:
             + id, nome, descricao, preco
-     - Venda:
+       - Venda:
             + id, cliente, funcionario, data_hora
-     - itemvendido:
+       - itemvendido:
             + id, venda, produto, quantidade
-     - Pagamento:
+       - Pagamento:
             + id, venda, total_pagar
 
 
-        Requesitos funcionais:
-            - O que podemos fazer com os objetos?
-                - Cadastar
-                - Atualizar 
-                - Pesquisar
-                - Listar
-                - Apagar
+       Requesitos funcionais:
+              - O que podemos fazer com os objetos?
+              - Cadastar
+              - Atualizar 
+              - Pesquisar
+              - Listar
+              - Apagar

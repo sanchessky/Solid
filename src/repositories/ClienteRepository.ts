@@ -1,36 +1,48 @@
 
+import { resolve } from "path";
 import Cliente from "../Classes/Cliente";
 import CommandsPessoa from "../Interfaces/CommandsPessoa";
 import { conexao } from "../database/Config";
+import { rejects } from "assert";
 
 export default class ClienteRepository implements CommandsPessoa<Cliente>{
-    PesquisarCPF(cpf: string): Cliente {
+    PesquisarCPF(cpf: string): Promise<Cliente> {
         throw new Error("Method not implemented.");
     }
-    PesquisarEmail(email: string): Cliente {
+    PesquisarEmail(email: string): Promise<Cliente> {
         throw new Error("Method not implemented.");
     }
-    Cadastrar(objeto: Cliente): Cliente {
-       
-    conexao.query("INSERT INTO cliente SET ?", objeto,(erro, result)=>{
-        if (erro) return erro
-            else {
-                return result;
-        }
-    })
-
-
+    Cadastrar(objeto: Cliente): Promise<Cliente> {
+        return new Promise ((resolve, reject)=>{
+            conexao.query("INSERT INTO cliente SET ?", objeto,(erro, result)=>{
+                if (erro){
+                    return reject(erro)
+                } 
+                    else {
+                        return resolve (objeto) 
+                    }
+            })
+        })
     }
-    Listar(): Cliente[] {
+    Listar(): Promise<Cliente[]> {
+        return new Promise ((resolve, reject)=>{
+            conexao.query("SELECT * FROM cliente ",(erro, result)=>{
+                if (erro){
+                    return reject(erro)
+                } 
+                    else {
+                        return resolve (result as Cliente[]) 
+                    }
+            })
+        })
+    }
+    Apagar(id: number): Promise<string> {
         throw new Error("Method not implemented.");
     }
-    Apagar(id: number): string {
+    Atualizar(objeto: Cliente): Promise<Cliente> {
         throw new Error("Method not implemented.");
     }
-    Atualizar(objeto: Cliente): Cliente {
-        throw new Error("Method not implemented.");
-    }
-    PesquisarId(id: number): Cliente {
+    PesquisarId(id: number): Promise<Cliente> {
         throw new Error("Method not implemented.");
     }
     

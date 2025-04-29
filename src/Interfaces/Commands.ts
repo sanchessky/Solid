@@ -1,7 +1,7 @@
 export default interface Commands<T>{
-    Cadastrar(objeto:T):T;
-    Listar():T[];
-    Apagar(id:number):string;
-    Atualizar(objeto:T):T;
-    PesquisarId(id:number):T;
+    Cadastrar(objeto:T):Promise<T>;
+    Listar():Promise<T[]>;
+    Apagar(id:number):Promise<string>;
+    Atualizar(objeto:T):Promise<T>;
+    PesquisarId(id:number):Promise<T>;
 }

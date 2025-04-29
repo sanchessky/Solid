@@ -3,4 +3,5 @@ export default interface Commands<T>{
     Listar():T[];
     Apagar(id:number):string;
     Atualizar(objeto:T):T;
+    PesquisarId(id:number):T;
 }

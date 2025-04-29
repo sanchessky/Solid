@@ -15,6 +15,7 @@ export default class ClienteServices{
         cli.aniversario = req.body.aniversario;
         cli.endereco = req.body.endereco
         const rs = await this.cliRepository.Cadastrar(cli);
+        return rs;
 
 
     }

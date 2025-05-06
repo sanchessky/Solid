@@ -1,9 +1,9 @@
 
-import { resolve } from "path";
+import { Request, Response } from "express";
 import Cliente from "../Classes/Cliente";
 import CommandsPessoa from "../Interfaces/CommandsPessoa";
 import { conexao } from "../database/Config";
-import { rejects } from "assert";
+
 
 export default class ClienteRepository implements CommandsPessoa<Cliente>{
     PesquisarCPF(cpf: string): Promise<Cliente> {
@@ -18,9 +18,9 @@ export default class ClienteRepository implements CommandsPessoa<Cliente>{
                 if (erro){
                     return reject(erro)
                 } 
-                    else {
+                else {
                         return resolve (objeto) 
-                    }
+                }
             })
         })
     }

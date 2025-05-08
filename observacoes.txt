@@ -92,3 +92,19 @@ id int auto_increment primary key,
 id_venda int not null,
 total_pagar decimal(7,2) not null
 );
+
+-- criando o relacionamento
+ALTER TABLE cliente
+ADD CONSTRAINT `fk_cliente_pk_endereco`
+FOREIGN KEY (`endereco`)
+REFERENCES endereco(`id`);
+
+ALTER TABLE autor
+ADD CONSTRAINT `fk_autor_pk_endereco`
+FOREIGN KEY autor (`endereco`)
+REFERENCES endereco(`id`);
+
+ALTER TABLE funcionario
+ADD CONSTRAINT `fk_funcionario_pk_endereco`
+FOREIGN KEY funcionario (`endereco`)
+REFERENCES endereco(`id`);

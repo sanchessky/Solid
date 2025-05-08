@@ -22,7 +22,7 @@ export default class ClienteRepository implements CommandsPessoa<Cliente>{
                 objeto.endereco.complemento,
                 objeto.endereco.cep,
                 objeto.endereco.bairro
-            ]
+            ],(erro, end)=>{}
         )
 
             conexao.query("INSERT INTO cliente SET ?", objeto,(erro, result)=>{

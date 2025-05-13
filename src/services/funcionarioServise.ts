@@ -24,7 +24,7 @@ export default class FuncionarioService{
 
     }
 
-    async listarFuncionarioes(req:Request, res:Response){
+    async listarFuncionarios(req:Request, res:Response){
         try{
             const rs = await this.funRepository.Listar();
             return res.status(200).json(rs);

@@ -1,4 +1,4 @@
-import { QueryResult } from "mysql2";
+import { QueryResult } from "mysql2"; 
 import Cliente from "../classes/Cliente";
 import { conexao } from "../database/Config";
 import CommandsPessoa from "../Interfaces/CommandsPessoa";

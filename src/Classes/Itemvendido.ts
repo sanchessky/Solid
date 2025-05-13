@@ -1,9 +1,8 @@
 import Produto from "./Produto";
-import Vendas from "./Vendas";
-
-export default class Itemvendidos{
+import Venda from "./Venda";
+export default class ItemVendido{
     id!:number;
-    vendas!:Vendas;
+    venda!:Venda;
     produto!:Produto;
     quantidade!:number;
 }

@@ -1,7 +1,7 @@
-import Vendas from "./Vendas";
+import Venda from "./Venda";
 
 export default class Pagamento{
     id!:number;
-    vendas!:Vendas;
-    total_pagar!:number;
+    venda!:Venda;
+    total_pagar!:number
 }

@@ -108,3 +108,25 @@ ALTER TABLE funcionario
 ADD CONSTRAINT `fk_funcionario_pk_endereco`
 FOREIGN KEY funcionario (`endereco`)
 REFERENCES endereco(`id`);
+
+
+thunder
+json
+{
+    
+    "nome": "São João",
+    "cpf": "123",
+    "email": "joãosao@teste.com",
+    "telefone": "(11)4002-5622",
+    "endereco": {
+      "id":1,
+      "tipo_logradouro":"Rua",
+      "logradouro":"Maresias",
+      "numero":"77",
+      "complemento":"Casa da frente",
+      "cep":"147788",
+      "bairro": "Vila Alegre"
+    },
+    "aniversario": "2002-5-15"
+}
+json

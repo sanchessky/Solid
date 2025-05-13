@@ -20,7 +20,7 @@ export default class FuncionarioRepository implements CommandsFuncionario<Funcio
     }
     Listar(): Promise<Funcionario[]> {
         return new Promise((resolve,reject)=>{
-            conexao.query("Select * from cliente",(erro, result)=>{
+            conexao.query("Select * from funcionario",(erro, result)=>{
                 if(erro){
                     return reject(erro)
                 }

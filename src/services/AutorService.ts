@@ -23,7 +23,7 @@ export default class AutorService{
 
     }
 
-    async listarAutor(req:Request, res:Response){
+    async listarAutores(req:Request, res:Response){
         try{
             const rs = await this.auterRepository.Listar();
             return res.status(200).json(rs);

@@ -3,6 +3,8 @@ import cors from "cors";
 import ClienteService from "./services/ClienteService";
 import AutorService from "./services/AutorService";
 import FuncionarioService from "./services/funcionarioServise";
+import ProdutoService from "./services/ProdutoServise";
+import VendaService from "./services/VendaService";
 
 
 
@@ -15,6 +17,8 @@ app.use(cors());
 const cli = new ClienteService();
 const auter = new AutorService();
 const fun = new FuncionarioService();
+const prod =new ProdutoService();
+const ven = new VendaService()
 
 ///#####################-- Fim Importações --##################################
 
@@ -43,7 +47,6 @@ app.post("/api/v1/autor/cadastrar", (req, res) => {
 //#####################--Fim Autor--##################################
 
 
-
 //#####################--Inicio Funcionario--##################################
 
 //#####################--get--##################################
@@ -56,6 +59,28 @@ app.post("/api/v1/funcionario/cadastrar", (req, res) => {
     fun.cadastroFuncionario(req, res);
 });
 //#####################--Fim Funcionario--##################################
+
+//#####################--Inicio Produto--##################################
+//#####################--get--##################################
+app.get("/api/v1/produto/listar", (req, res) => {
+    prod.listarProdutos(req, res);
+});
+//#####################--post--##################################
+app.post("/api/v1/produto/cadastrar", (req, res) => {
+    prod.cadastroProduto(req, res);
+});
+//#####################--Fim Produto--####################################
+
+//#####################--Inicio Vendas--##################################
+//#####################--get--##################################
+app.get("/api/v1/vendas/listar", (req, res) => {
+    ven.listarVendas(req, res);
+});
+//#####################--post--##################################
+app.post("/api/v1/vendas/cadastrar", (req, res) => {
+    ven.cadastroVenda(req, res);
+});
+//#####################--Fim Vendas--####################################
 
 
 

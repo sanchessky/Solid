@@ -1,14 +1,14 @@
 import {Request, Response} from "express";
 import Venda from "../classes/Venda";
-import VendaRepository from "../repositories/VendaRepositor";
+import VendaRepository from "../repositories/VendaRepository";
 
 export default class VendaService{
     venRepository = new VendaRepository();
 
     async cadastroVenda(req:Request, res:Response){
         const ven:Venda = new Venda();
-        ven.cliente.id = req.body.id_cliente
-        ven.funcionario.id = req.body.id_funcionario;
+        ven.cliente = req.body.id_cliente
+        ven.funcionario = req.body.id_funcionario;
 
         try{
             const rs = await this.venRepository.Cadastrar(ven);

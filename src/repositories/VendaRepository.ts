@@ -34,8 +34,8 @@ export default class VendaRepository implements CommandsVendas<Venda>{
         return new Promise((resolve,reject)=>{
  
             conexao.query("INSERT INTO venda(id_cliente,id_funcionario) Values (?,?)",
-            [   obj.cliente.id,
-                obj.funcionario.id,
+            [   obj.cliente,
+                obj.funcionario,
                 ],        
             
                 (erro,end:any)=>{

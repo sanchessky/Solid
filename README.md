@@ -203,11 +203,7 @@ docker rm -f <id>    # Remove container forçadamente
 
 ## 📌 Observação
 
-Este projeto pode ser facilmente estendido para incluir funcionalidades como:
-- Geração de relatórios de vendas
-- Autenticação e autorização de usuários
-- Integração com gateways de pagamento
-- Interface Web com React ou outra tecnologia
+Em Breve !!!!!!
 
 ---
 

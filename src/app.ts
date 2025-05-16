@@ -2,9 +2,12 @@ import express from "express";
 import cors from "cors";
 import ClienteService from "./services/ClienteService";
 import AutorService from "./services/AutorService";
-import FuncionarioService from "./services/funcionarioServise";
-import ProdutoService from "./services/ProdutoServise";
+import FuncionarioService from "./services/FuncionarioService";
+import ProdutoService from "./services/ProdutoService";
 import VendaService from "./services/VendaService";
+import ItemvendidoService from "./services/ItemvendidoService";
+import PagamentoService from "./services/PagamentoService";
+
 
 
 
@@ -18,7 +21,11 @@ const cli = new ClienteService();
 const auter = new AutorService();
 const fun = new FuncionarioService();
 const prod =new ProdutoService();
-const ven = new VendaService()
+const ven = new VendaService();
+const item = new ItemvendidoService();
+const pag = new PagamentoService();
+
+
 
 ///#####################-- Fim Importações --##################################
 
@@ -72,6 +79,7 @@ app.post("/api/v1/produto/cadastrar", (req, res) => {
 //#####################--Fim Produto--####################################
 
 //#####################--Inicio Vendas--##################################
+
 //#####################--get--##################################
 app.get("/api/v1/vendas/listar", (req, res) => {
     ven.listarVendas(req, res);
@@ -80,10 +88,34 @@ app.get("/api/v1/vendas/listar", (req, res) => {
 app.post("/api/v1/vendas/cadastrar", (req, res) => {
     ven.cadastroVenda(req, res);
 });
+
 //#####################--Fim Vendas--####################################
 
+//#####################--Inicio Itemvendido--##################################
 
+//#####################--get--##################################
+app.get("/api/v1/itemvendido/listar", (req, res) => {
+    item.listarItemvendidos(req, res);
+});
+//#####################--post--##################################
+app.post("/api/v1/itemvendido/cadastrar", (req, res) => {
+    item.cadastroItemvendido(req, res);
+});
 
+//#####################--Fim Itemvendido--####################################
+
+//#####################--Inicio Pagamento--##################################
+
+//#####################--get--##################################
+app.get("/api/v1/pagamento/listar", (req, res) => {
+   pag.listarPagamentos(req, res);
+});
+//#####################--post--##################################
+app.post("/api/v1/pagamento/cadastrar", (req, res) => {
+  pag.cadastroPagamento(req, res);
+});
+
+//#####################--Fim Pagamento--####################################
 
 
 

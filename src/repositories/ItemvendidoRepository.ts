@@ -1,16 +1,16 @@
-import Pagamento from "../classes/pagamento";
+import Itemvendido from "../classes/Itemvendido";
 import { conexao } from "../database/Config";
 import Commands from "../Interfaces/Commands";
 
-export default class PagamentoRepository implements Commands<Pagamento>{
-    Listar(): Promise<Pagamento[]> {
+export default class ItemvendidoRepository implements Commands<Itemvendido>{
+    Listar(): Promise<Itemvendido[]> {
         return new Promise((resolve,reject)=>{
-            conexao.query("Select * from pagamento",(erro, result)=>{
+            conexao.query("Select * from itensvenda",(erro, result)=>{
                 if(erro){
                     return reject(erro)
                 }
                 else{
-                    return resolve(result as Pagamento[])
+                    return resolve(result as Itemvendido[])
                 }
             })
         })
@@ -18,19 +18,20 @@ export default class PagamentoRepository implements Commands<Pagamento>{
     Apagar(id: number): Promise<string> {
         throw new Error("Method not implemented.");
     }
-    Atualizar(obj: Pagamento): Promise<Pagamento> {
+    Atualizar(obj: Itemvendido): Promise<Itemvendido> {
         throw new Error("Method not implemented.");
     }
-    PesquisarId(id: number): Promise<Pagamento> {
+    PesquisarId(id: number): Promise<Itemvendido> {
         throw new Error("Method not implemented.");
     }
-    Cadastrar(obj: Pagamento): Promise<Pagamento> {
+    Cadastrar(obj: Itemvendido): Promise<Itemvendido> {
         return new Promise((resolve,reject)=>{
  
-            conexao.query("INSERT INTO pagamento(id_venda,total_pagar) Values (?,?)",
+            conexao.query("INSERT INTO itensvenda(id_venda,id_produto,quantidade) Values (?,?,?)",
             [   obj.venda,
-                obj.total_pagar
-                ],          
+                obj.produto,
+                obj.quantidade
+                ],        
             
                 (erro,end:any)=>{
                     

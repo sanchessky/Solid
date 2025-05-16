@@ -3,8 +3,9 @@ import Produto from "../classes/Produto";
 import ProdutoRepository from "../repositories/ProdutoRepository";
 
 export default class ProdutoService{
-    prodRepository = new ProdutoRepository();
-
+    prodRepository: any;
+    listarPagamentos: any;
+    cadastroPagamento: any;
     async cadastroProduto(req:Request, res:Response){
         const prod:Produto = new Produto();
         prod.nome = req.body.nome

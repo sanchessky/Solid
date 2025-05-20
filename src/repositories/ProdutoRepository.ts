@@ -27,10 +27,14 @@ export default class ProdutoRepository implements Commands<Produto>{
     Cadastrar(obj: Produto): Promise<Produto> {
         return new Promise((resolve,reject)=>{
  
-            conexao.query("INSERT INTO produto(nome,descricao,preco) Values (?,?,?)",
+            conexao.query("INSERT INTO produto(nome,descricao,preco,foto1,foto2,foto3) Values (?,?,?,?,?,?)",
             [   obj.nome,
                 obj.descricao,
-                obj.preco],          
+                obj.preco,
+                obj.foto1,
+                obj.foto2,
+                obj.foto3
+            ],          
             
                 (erro,end:any)=>{
                     

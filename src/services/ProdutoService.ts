@@ -34,5 +34,14 @@ export default class ProdutoService{
             return res.status(500).json(erro)
         }
     }
+    async listarProdutosMaisVendidos(req:Request, res:Response){
+        try{
+            const rs = await this.prodRepository.ListarMaisVendidos();
+            return res.status(200).json(rs);
+        }
+        catch(erro){
+            return res.status(500).json(erro)
+        }
+    }
 
 }

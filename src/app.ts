@@ -72,6 +72,10 @@ app.post("/api/v1/funcionario/cadastrar", (req, res) => {
 app.get("/api/v1/produto/listar", (req, res) => {
     prod.listarProdutos(req, res);
 });
+
+app.get("/api/v1/produto/listarmaisvendidos", (req, res) => {
+    prod.listarProdutosMaisVendidos(req, res);
+});
 //#####################--post--##################################
 app.post("/api/v1/produto/cadastrar", (req, res) => {
     prod.cadastroProduto(req, res);

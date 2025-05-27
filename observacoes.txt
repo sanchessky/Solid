@@ -205,3 +205,10 @@ id int auto_increment primary key,
 id_venda int not null,
 total_pagar decimal(7,2) not null
 );
+
+
+SELECT produto.nome, produto.foto1, itensvenda.quantidade
+FROM produto INNER JOIN itensvenda
+ON produto.id = itensvenda.id_produto
+ORDER BY itensvenda.quantidade DESC
+LIMIT 0,10

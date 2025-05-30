@@ -32,6 +32,18 @@ export default class ProdutoRepository implements Commands<Produto> {
             })
         })
     }
+    ListarPorCategoria(categoria:string): Promise<Produto[]> {
+        return new Promise((resolve, reject) => {
+            conexao.query(`Select * from produto where descricao like ${categoria}`, (erro, result) => {
+                if (erro) {
+                    return reject(erro)
+                }
+                else {
+                    return resolve(result as Produto[])
+                }
+            })
+        })
+    }
 
     Apagar(id: number): Promise<string> {
         throw new Error("Method not implemented.");

@@ -43,5 +43,15 @@ export default class ProdutoService{
             return res.status(500).json(erro)
         }
     }
-
+    async listarProdutosPorCategoria(req:Request, res:Response){
+        let categoria = req.params.categoria;
+        categoria = `'%${categoria}%'`
+        try{
+            const rs = await this.prodRepository.ListarPorCategoria(categoria);
+            return res.status(200).json(rs);
+        }
+        catch(erro){
+            return res.status(500).json(erro)
+        }
+    }
 }

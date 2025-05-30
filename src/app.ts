@@ -31,23 +31,20 @@ const pag = new PagamentoService();
 
 //#####################-- Inicio Cliente --##################################
 
-//#####################-- get --##################################
 app.get("/api/v1/cliente/listar", (req, res) => {
     cli.listarClientes(req, res);
 });
-//#####################--post--##################################
+
 app.post("/api/v1/cliente/cadastro", (req, res) => {
         cli.cadastroCliente(req, res);
     })
 //#####################--FIM Cliente--##################################
 //#####################--Inicio Autor--##################################
 
-//#####################--get--##################################
 app.get("/api/v1/autor/listar", (req, res) => {
     auter.listarAutores(req, res);
 });
 
-//#####################--post--##################################
 app.post("/api/v1/autor/cadastrar", (req, res) => {
     auter.cadastroAutor(req, res);
 });
@@ -68,7 +65,6 @@ app.post("/api/v1/funcionario/cadastrar", (req, res) => {
 //#####################--Fim Funcionario--##################################
 
 //#####################--Inicio Produto--##################################
-//#####################--get--##################################
 app.get("/api/v1/produto/listar", (req, res) => {
     prod.listarProdutos(req, res);
 });
@@ -76,7 +72,11 @@ app.get("/api/v1/produto/listar", (req, res) => {
 app.get("/api/v1/produto/listarmaisvendidos", (req, res) => {
     prod.listarProdutosMaisVendidos(req, res);
 });
-//#####################--post--##################################
+
+app.get("/api/v1/produto/listarporcategoria/:categoria", (req, res) => {
+    prod.listarProdutosPorCategoria(req, res);
+});
+
 app.post("/api/v1/produto/cadastrar", (req, res) => {
     prod.cadastroProduto(req, res);
 });

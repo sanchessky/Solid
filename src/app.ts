@@ -77,6 +77,10 @@ app.get("/api/v1/produto/listarporcategoria/:categoria", (req, res) => {
     prod.listarProdutosPorCategoria(req, res);
 });
 
+app.get("/api/v1/produto/listarporid/:id", (req, res) => {
+    prod.listarProdutosPorId(req, res);
+});
+
 app.post("/api/v1/produto/cadastrar", (req, res) => {
     prod.cadastroProduto(req, res);
 });

@@ -1,13 +1,13 @@
 import {Request, Response} from "express";
-import Pagamento from "../classes/pagamento";
 import PagamentoRepository from "../repositories/PagamentoRepository";
+import Pagamento from "../classes/pagamento";
 
 
 export default class PagamentoService{
     pagRepository = new PagamentoRepository();
 
     async cadastroPagamento(req:Request, res:Response){
-        const pag:Pagamento = new Pagamento();
+        let pag:Pagamento = new Pagamento();
         pag.venda = req.body.id_venda;
         pag.total_pagar = req.body.total_pagar;
 

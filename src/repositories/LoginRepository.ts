@@ -27,7 +27,6 @@ export default class LoginRepository implements CommandsLogin<Usuario>{
                     return resolve(result)
                 }
             }
-
         )
 
         })    

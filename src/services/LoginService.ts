@@ -18,9 +18,8 @@ export default class LoginService{
         us.fotousuario = req.body.fotousuario;
 
         try{
-            const rs = await this.loginRepository.Cadastrar(us);
-            return res.status(201).json(rs);
-            
+            let rs = await this.loginRepository.Cadastrar(us)
+            return res.status(201).json(rs)
         }
         catch(erro){
             return res.status(500).json(erro)

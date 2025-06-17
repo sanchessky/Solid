@@ -3,10 +3,26 @@ import Usuario from "../classes/Usuario";
 import CommandsLogin from "../Interfaces/CommandsLogin";
 import bcrypt from "bcrypt";
 import { conexao } from "../database/Config";
+import { error } from "console";
 
 export default class LoginRepository implements CommandsLogin<Usuario>{
     login(usuario: string, senha: string) {
-        throw new Error("Method not implemented.");
+        conexao.query(`SELECT us.id,us.nomeusuario, us.senha, us.fotousuario, cli.id_cliente WHERE us.nomeusuario=?`, 
+            [
+                usuario
+            ],
+            (erro, result:any)=>{
+                if (erro) {
+                    return "false"
+                }
+                else{
+                    return result
+                }
+            }
+        )
+        
+
+
     }
     loginUs(usuario: string, cpf: string, email: string, senha: string) {
         throw new Error("Method not implemented.");

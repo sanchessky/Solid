@@ -99,16 +99,13 @@ app.post("/api/v1/pagamento/cadastrar", (req, res) => {
   pag.cadastroPagamento(req, res);
 });
 
-
-
-
-
-
-
- //#####################--post--##################################
  app.post("/api/v1/usuarios/cadastrar", (req, res) => {
    us.cadastrarUsuario(req, res);
  });
+
+ app.post("/api/v1/usuarios/login", (req, res) => {
+    us.loginUsuario(req, res);
+  });
 
 
 

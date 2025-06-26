@@ -26,4 +26,47 @@ export default class LoginService{
         }
 
     }
+
+
+    async loginUsuario(req:Request, res: Response){
+        let us = req.body.usuario;
+        let lg = req.body.senha;
+        try{
+            const rs = await this.loginRepository.login(us,lg);
+            if(rs==null){
+                return res.status(401).json({msg:`Usuário ou senha inválido`})
+            }
+            bcrypt.compare(lg, rs[0].senha,(erro,igual)=>{
+                if(!igual){
+                    return res.status(401).json({msg:`Usuário ou senha inválido`})
+                }
+                return res.status(200).json({msg:`Usuário logado`})
+            })
+
+        }
+        catch(error){
+            return res.status(500).json({msg:`Erro ao tentar logar ${error}`})
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

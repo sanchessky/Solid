@@ -2,6 +2,8 @@ import LoginRepository from "../repositories/LoginRepository";
 import bcrypt from "bcrypt"
 import {Request, Response} from "express";
 import Usuario from "../classes/Usuario";
+import {sign, verify } from "jsonwebtoken";
+
 
 export default class LoginService{
     loginRepository = new LoginRepository()
@@ -40,7 +42,15 @@ export default class LoginService{
                 if(!igual){
                     return res.status(401).json({msg:`Usuário ou senha inválido`})
                 }
-                return res.status(200).json({msg:`Usuário logado`})
+                let usuario={
+                    id:rs[0].id,
+                    nomeusuario:rs[0].nomeusuario,
+                    fotousuario:rs[0].fotousuario,
+                }
+                const token = sign(usuario,"P@44w0rd",{expiresIn: "2d"})
+
+
+                return res.status(200).json({msg:`Usuário logado`, payload:usuario, token:token})
             })
 
         }
